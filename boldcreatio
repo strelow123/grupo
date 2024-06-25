@@ -1,1 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa de Texto com Copiar Link</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .whatsapp-icon {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .whatsapp-icon img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+        .text-box {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .copy-button {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #25D366;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .copy-button:hover {
+            background-color: #1EBE56;
+        }
+        .copy-button .fas {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="whatsapp-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        <span>WhatsApp Grupo</span>
+    </div>
+    <input type="text" id="linkBox" class="text-box" value="https://chat.whatsapp.com/CQl0pCRf6YW4vCfJT236oG">
+    <button class="copy-button" onclick="copyLink()">
+        <i class="fas fa-copy"></i>
+        Copiar
+    </button>
+</div>
+
+<script>
+    function copyLink() {
+        var copyText = document.getElementById("linkBox");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // Para dispositivos móveis
+        document.execCommand("copy");
+        alert("Link copiado: " + copyText.value);
+    }
+</script>
+
+</body>
+</html>
 
